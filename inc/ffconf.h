@@ -14,12 +14,6 @@
 /-----------------------------------------------------------------------------*/
 #include "stm32f7xx_hal.h"
 
-#ifdef USE_STM32746G_DISCOVERY
-  #include "stm32746g_discovery_sd.h"
-#else
-  #error "Please select first the Board used in your application (in boardname_eval.h file)"
-#endif
-
 /*-----------------------------------------------------------------------------/
 / Functions and Buffer Configurations
 /-----------------------------------------------------------------------------*/

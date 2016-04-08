@@ -40,10 +40,10 @@
  #define UART_DEFAULT_NUM		2
  #define UARTx					USART2
  #define USARTx_IRQHandler		USART2_IRQHandler
-#else /* STM32F746G-Discovery */
- #define UART_DEFAULT_NUM		1
- #define UARTx					USART1
- #define USARTx_IRQHandler		USART1_IRQHandler
+#else /* STM32F746ZG-Nucleo */
+ #define UART_DEFAULT_NUM		3
+ #define UARTx					USART3
+ #define USARTx_IRQHandler		USART3_IRQHandler
  //#define UART_DEFAULT_NUM		6
  //#define UARTx					USART6
  //#define USARTx_IRQHandler		USART6_IRQHandler

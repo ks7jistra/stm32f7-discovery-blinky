@@ -83,7 +83,7 @@ SOURCES_C = $(wildcard src/*.c)
 SOURCES_C += sys/syscalls.c
 
 #SOURCES_C += Drivers/CMSIS/Device/ST/STM32F7xx/Source/Templates/system_stm32f7xx.c
-SOURCES_C += $(wildcard Drivers/BSP/STM32746G-Discovery/*.c)
+SOURCES_C += $(wildcard Drivers/BSP/STM32F7xx_Nucleo_144/*.c)
 SOURCES_C += $(wildcard Drivers/STM32F7xx_HAL_Driver/Src/*.c)
 SOURCES_C += $(wildcard Drivers/BSP/Components/ft5336/*.c)
 
@@ -103,7 +103,7 @@ INCLUDES += -I . -I src -I inc -I sys
 INCLUDES += -I Drivers/CMSIS/Include
 INCLUDES += -I Drivers/CMSIS/Device/ST/STM32F7xx/Include
 INCLUDES += -I Drivers/STM32F7xx_HAL_Driver/Inc
-INCLUDES += -I Drivers/BSP/STM32746G-Discovery
+INCLUDES += -I Drivers/BSP/STM32F7xx_Nucleo_144
 
 INCLUDES += $(addprefix -I ,$(INCPATHS))
 
@@ -119,15 +119,15 @@ ifeq ($(LOG_SUPPORT),USE_LCD_LOG)
  SOURCES_C += Utilities/Log/lcd_log.c
 endif
 
-FATFS = ./Middlewares/Third_Party/FatFs/src
+#FATFS = ./Middlewares/Third_Party/FatFs/src
 
-INCLUDES += -I $(FATFS) -I $(FATFS)/drivers
+#INCLUDES += -I $(FATFS) -I $(FATFS)/drivers
 
-SOURCES_C += \
- $(wildcard $(FATFS)/*.c)				\
- $(FATFS)/drivers/sd_diskio.c			\
- $(FATFS)/option/unicode.c				\
- $(FATFS)/option/syscall.c
+#SOURCES_C += \
+ #$(wildcard $(FATFS)/*.c)				\
+ #$(FATFS)/drivers/sd_diskio.c			\
+ #$(FATFS)/option/unicode.c				\
+ #$(FATFS)/option/syscall.c
 
 ifeq ($(OS_SUPPORT),USE_FREERTOS)
 

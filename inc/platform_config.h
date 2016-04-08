@@ -8,6 +8,7 @@
 
     @section HISTORY
 		2015.07.09	V1.00	Start Here.
+		2016.04.09  V2.00   Change for STM32F7-Nucleo board by ks7jistra
 
     @section LICENSE
 		BSD License. See Copyright.txt
@@ -41,31 +42,31 @@ typedef struct
 } GPIO_OldTypeDef;
 #endif
 
-/* Exported types ------------------------------------------------------------*/
-#if defined(USE_STM32746G_DISCOVERY)
+
  /* STM32F746G-Discovery */
- #include "stm32746g_discovery.h"
+ /*#include "stm32746g_discovery.h"
  #include "stm32746g_discovery_sdram.h"
- #include "stm32746g_discovery_qspi.h"
+ #include "stm32746g_discovery_qspi.h"*/
+
+ /* STM32F746ZG-Nucleo */
+#include "stm32f7xx_nucleo_144.h"
 
  /* FatFs includes component */
- #include "ff_gen_drv.h"
- #include "sd_diskio.h"
+ //#include "ff_gen_drv.h"
+ //#include "sd_diskio.h"
 
  /* LED Definitions(ArduinoUNO Style SCK/LED Pin) */
- #define GPIO_LED               		(GPIOI)
- #define GPIO_LED_L               		((GPIO_OldTypeDef *)GPIOI)
- #define RCC_AHBPeriph_GPIO_LED			(RCC_AHB1ENR_GPIOIEN)
- #define LED_D1      					(GPIO_PIN_1)
+ #define GPIO_LED               		(GPIOB)
+ #define GPIO_LED_L               		((GPIO_OldTypeDef *)GPIOB)
+ #define RCC_AHBPeriph_GPIO_LED			(RCC_AHB1ENR_GPIOBEN)
+ #define LED_D1      					(GPIO_PIN_14)
  #define LED_IO_HI(x)					(GPIO_LED_L->BSRR = x)
  #define LED_IO_LO(x)					(GPIO_LED_L->BRR = x)
  #define LED_OFF(x)						LED_IO_LO(x)		/* Active High */
  #define LED_ON(x)						LED_IO_HI(x)		/* Active High */
  #define LED_D1_OFF()					LED_OFF(LED_D1)
  #define LED_D1_ON()					LED_ON(LED_D1)
-#else
- #error "Select Your EVAL Board!"
-#endif
+
 
 /* Exported constants --------------------------------------------------------*/
 
